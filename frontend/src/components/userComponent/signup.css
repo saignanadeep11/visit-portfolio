@@ -1,0 +1,18 @@
+.signUpDiv{
+  background-color: rgb(250, 125, 125);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.signUpForm{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  max-width: min-content;
+}
+input{
+  border:none;
+  
+}

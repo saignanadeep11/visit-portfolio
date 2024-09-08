@@ -1,0 +1,18 @@
+user schema:
+    name
+    email
+    short id
+    encryped password
+    jwt token
+    is email verfied
+cv schema:
+    short id
+    backgroung color
+    text color
+    name
+    head line
+    about
+    skills
+    experience
+    contact info
+    
