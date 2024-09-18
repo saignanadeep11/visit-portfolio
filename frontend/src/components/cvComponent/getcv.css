@@ -1,0 +1,11 @@
+.nameDiv{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  height: 85vh;
+}
+
+.mainDiv{
+  display: grid;
+  grid-template-columns: 10fr 1fr 10fr;
+}

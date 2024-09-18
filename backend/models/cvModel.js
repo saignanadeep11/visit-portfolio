@@ -27,7 +27,7 @@ const cvSchema=new mongoose.Schema({
     default:""
   },
   experience:{
-    type:Array,
+    type:String,
     default:""
   },
   contactInfo:{
@@ -51,6 +51,10 @@ const cvSchema=new mongoose.Schema({
   maxNoOfChanges:{
     type:Number,
     default:1
+  },
+  model:{
+    type:String,
+    required:true
   }
 },{timestamps:true})
 
