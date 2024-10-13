@@ -6,8 +6,6 @@ const connect = async (url) => {
       .connect(url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
       })
       .then(() => console.log("Connection with db was established"))
       .catch((err) => {
