@@ -6,7 +6,7 @@ const sendVerificationEmail = async (cUser) => {
     expiresIn: "1h",
   });
 
-  const verificationUrl = `http://localhost:5173/verifyMail/${token}`;
+  const verificationUrl = `${process.env.FRONTEND_URL}/${token}`;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
