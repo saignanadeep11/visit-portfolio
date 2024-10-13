@@ -2,11 +2,10 @@ const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
 
 const sendVerificationEmail = async (cUser) => {
-  // Generate a token with JWT
   const token = jwt.sign({ email: cUser.email }, process.env.JWT_SECRET, {
     expiresIn: "1h",
   });
-  // Email content
+
   const verificationUrl = `http://localhost:5173/verifyMail/${token}`;
 
   const transporter = nodemailer.createTransport({
@@ -38,6 +37,5 @@ const sendVerificationEmail = async (cUser) => {
 };
 
 // Call this function after user registration
-// c = { email: "saignanadeep11@gmail.com" };
 // sendVerificationEmail(c);
 module.exports = sendVerificationEmail;

@@ -1,8 +1,8 @@
 import axios from "axios";
-
+const url = import.meta.env.VITE_BACKEND_URL;
 export const signUp = async (data) => {
   return await axios
-    .post("http://localhost:8000/user/api/SignUp", data, {
+    .post(`${url}/user/api/SignUp`, data, {
       withCredentials: true,
     })
     .then((res) => {
@@ -16,7 +16,7 @@ export const signUp = async (data) => {
 };
 export const login = async (data) => {
   return await axios
-    .post("http://localhost:8000/user/api/login", data, {
+    .post(`${url}/user/api/login`, data, {
       withCredentials: true,
     })
     .then((res) => {
@@ -32,7 +32,7 @@ export const login = async (data) => {
 export const isUserLogin = async () => {
   let user = null;
   await axios
-    .get("http://localhost:8000/user/api/isUser", {
+    .get(`${url}/user/api/isUser`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -47,11 +47,7 @@ export const isUserLogin = async () => {
 
 export const logOut = async () => {
   await axios
-    .post(
-      "http://localhost:8000/user/api/logOut",
-      {},
-      { withCredentials: true }
-    )
+    .post(`${url}/user/api/logOut`, {}, { withCredentials: true })
     .then((res) => console.log(res))
     .catch((err) => console.log(err));
 };
@@ -59,7 +55,7 @@ export const logOut = async () => {
 export const verifyEmail = async (token) => {
   let data = null;
   await axios
-    .get(`http://localhost:8000/user/api/verifyEmail/${token}`, {
+    .get(`${url}/user/api/verifyEmail/${token}`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -75,7 +71,7 @@ export const verifyEmail = async (token) => {
 export const sendEmail = async () => {
   await axios
     .post(
-      `http://localhost:8000/user/api/sendEmail`,
+      `${url}/user/api/sendEmail`,
       {},
       {
         withCredentials: true,
@@ -90,7 +86,7 @@ export const sendEmail = async () => {
 export const isMailVerified = async () => {
   let eod;
   await axios
-    .get("http://localhost:8000/user/api/isMailVerified", {
+    .get(`${url}/user/api/isMailVerified`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -106,7 +102,7 @@ export const isMailVerified = async () => {
 export const getAdminUser = async () => {
   let data = null;
   await axios
-    .get("http://localhost:8000/user/api/getAdminUser", {
+    .get(`${url}/user/api/getAdminUser`, {
       withCredentials: true,
     })
     .then((res) => {

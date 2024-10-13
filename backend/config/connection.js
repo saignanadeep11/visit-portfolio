@@ -1,14 +1,23 @@
-const db=require('mongoose')
+const db = require("mongoose");
 
-const connect=(url)=>{db.connect(url).then(
-  ()=>console.log("Connection with db was established")
-).catch((err)=>{console.log("db error",err)})}
+const connect = async (url) => {
+  try {
+    await db
+      .connect(url, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+      })
+      .then(() => console.log("Connection with db was established"))
+      .catch((err) => {
+        console.log("db error", err);
+      });
+  } catch (error) {
+    console.log("db error", error);
+  }
+};
 
-/*,{
-  useNewUrlParser:true,
-  useUnifiedTopology:true,
-  useCreateIndex:true,
-}*/
-module.exports={
-  connect
-}
+module.exports = {
+  connect,
+};

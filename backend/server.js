@@ -1,10 +1,10 @@
-const express=require('express')
-const {app}=require('./app')
-const {connect}=require('./config/connection')
+const express = require("express");
+const { app } = require("./app");
+const { connect } = require("./config/connection");
 
-connect("mongodb://127.0.0.1:27017/visitMyCv")
+connect(process.env.MONGO_URL);
 // const add =require('./tes')
 // add()
-const server=app.listen(8000,()=>{
-  console.log("server running at 8000")
-})
+const server = app.listen(process.env.PORT, () => {
+  console.log(`server running at ${process.env.PORT}`);
+});

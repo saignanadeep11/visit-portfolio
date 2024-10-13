@@ -1,8 +1,8 @@
 import axios from "axios";
-
+const url = import.meta.env.VITE_BACKEND_URL;
 export const createCv = async (data) => {
   return await axios
-    .post("http://localhost:8000/cv/api/createCv", data, {
+    .post(`${url}/cv/api/createCv`, data, {
       withCredentials: true,
     })
     .then((res) => {
@@ -18,7 +18,7 @@ export const createCv = async (data) => {
 export const getCv = async (uuid) => {
   let cvData;
   await axios
-    .get(`http://localhost:8000/cv/api/getCv/${uuid}`, {
+    .get(`${url}/cv/api/getCv/${uuid}`, {
       withCredentials: true,
     })
     .then((res) => {
@@ -36,7 +36,7 @@ export const getCv = async (uuid) => {
 export const getMyCv = async () => {
   let cv;
   await axios
-    .get("http://localhost:8000/cv/api/getMyCv", { withCredentials: true })
+    .get(`${url}/cv/api/getMyCv`, { withCredentials: true })
     .then((res) => {
       cv = res.data;
     })
@@ -48,7 +48,7 @@ export const getMyCv = async () => {
 
 export const deleteMyCv = async () => {
   await axios
-    .delete("http://localhost:8000/cv/api/deleteCv", { withCredentials: true })
+    .delete(`${url}/cv/api/deleteCv`, { withCredentials: true })
     .then((res) => {
       console.log(res.data);
     })
@@ -58,7 +58,7 @@ export const deleteMyCv = async () => {
 export const getAdmin = async () => {
   let data = null;
   await axios
-    .get("http://localhost:8000/cv/api/getAdmin", { withCredentials: true })
+    .get(`${url}/cv/api/getAdmin`, { withCredentials: true })
     .then((res) => (data = res.data))
     .catch((err) => console.log(err));
   return data;
