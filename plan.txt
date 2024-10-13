@@ -16,3 +16,4 @@ cv schema:
     experience
     contact info
     
+custom fields and website email --could`nt remember about custom fields,might be about makeCv

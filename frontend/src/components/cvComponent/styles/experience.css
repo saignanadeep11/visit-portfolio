@@ -1,0 +1,36 @@
+@media (max-width: 2570px) {
+  .expDiv {
+    font-size: 28px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+}
+@media (max-width: 1600px) {
+  .expDiv {
+    font-size: 26px;
+    margin-top: 30px;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 1124px) {
+  .expDiv {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .expDiv {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+}
+.expMainDiv {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+
+.expDiv {
+  text-align: justify;
+  white-space: pre-wrap;
+}

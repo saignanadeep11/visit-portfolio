@@ -1,0 +1,73 @@
+@media (max-width: 2570px) {
+  .mainDiv form h2 {
+    font-size: 30px;
+  }
+  .mainDiv,
+  .mainDiv .input-group-text,
+  .mainDiv h6 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .mainDiv form h2 {
+    font-size: 26px;
+  }
+  .mainDiv,
+  .mainDiv .input-group-text,
+  .mainDiv h6 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 450px) {
+  .mainDiv form h2 {
+    font-size: 22px;
+  }
+  .mainDiv,
+  .mainDiv .input-group-text,
+  .mainDiv h6 {
+    font-size: 18px;
+  }
+}
+
+.mainDiv {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  border: black;
+  border-style: ridge;
+  border-radius: 9px;
+  margin-left: 10px;
+}
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+li {
+  cursor: pointer;
+}
+.mainDiv form h6 {
+  color: rgb(67, 67, 252);
+}
+
+.mainDiv form h2 {
+  font-family: serif;
+  color: rgb(235, 66, 235);
+}
+
+.noteWarning {
+  color: rgb(255, 65, 65);
+  /* color: rgb(255, 0, 0); */
+}
+.noteWarning span {
+  color: rgb(255, 0, 0);
+}

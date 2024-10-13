@@ -1,18 +1,90 @@
-.signUpDiv{
-  background-color: rgb(250, 125, 125);
+@media (max-width: 2570px) {
+  .signUpDiv {
+    font-size: 25px;
+  }
+  .signUpDiv input,
+  .signUpDiv button {
+    font-size: 24px;
+  }
+}
+@media (max-width: 1660px) {
+  .signUpDiv {
+    font-size: 20px;
+  }
+  .signUpDiv input,
+  .signUpDiv button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  .signUpDiv {
+    font-size: 20px;
+  }
+  .signUpDiv input,
+  .signUpDiv button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 450px) {
+  .signUpDiv {
+    font-size: 19px;
+  }
+  .signUpDiv input,
+  .signUpDiv button {
+    font-size: 18px;
+  }
+}
+
+.signUpDiv {
+  background-color: rgb(78, 78, 78);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.signUpForm{
+.signUpForm {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
   max-width: min-content;
 }
-input{
-  border:none;
-  
+.signUpDiv h1 {
+  color: white;
+}
+
+.signUpDiv input::placeholder {
+  color: white;
+}
+
+.signUpDiv input {
+  background: transparent;
+  border: solid white;
+}
+
+.signUpDiv button,
+.redirectS {
+  border: none;
+  /* padding: 10px; */
+  background: transparent;
+  color: white;
+  position: relative;
+  width: max-content;
+}
+
+/* .signUpDiv button:hover {
+  border-bottom: solid white;
+} */
+.signUpDiv button:hover::after,
+.redirectS:hover::after {
+  content: " ";
+  color: white;
+  position: absolute;
+  background: radial-gradient(white, black);
+  border-radius: 20%;
+  height: 3px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  /* animation: ann 1ms; */
 }

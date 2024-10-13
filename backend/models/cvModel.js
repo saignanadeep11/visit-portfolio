@@ -1,63 +1,66 @@
-const mongoose=require('mongoose')
+const mongoose = require("mongoose");
 
-const cvSchema=new mongoose.Schema({
-  uuid:{
-    type:mongoose.Schema.Types.String,
-    ref:"user",
-    unique:true
-  },
-  views:{
-    type:Number,
-    default:0
-  },
-  name:{
-    type:String,
-    required:true
-  },
-  headLine:{
-    type:String,
-    default:""
-  },
-  about:{
-    type:String,
-    default:""
-  },
-  skills:{
-    type:String,
-    default:""
-  },
-  experience:{
-    type:String,
-    default:""
-  },
-  contactInfo:{
-    phoneNo:{
-      type:String,
-    default:""
+const cvSchema = new mongoose.Schema(
+  {
+    uuid: {
+      type: mongoose.Schema.Types.String,
+      ref: "user",
+      unique: true,
     },
-    emailId:{
-      type:String,
-    default:""
+    views: {
+      type: Number,
+      default: 0,
     },
-    linkedIn:{
-      type:String,
-    default:""
-    }
+    name: {
+      type: String,
+      required: true,
+    },
+    headLine: {
+      type: String,
+      default: "",
+    },
+    about: {
+      type: String,
+      default: "",
+    },
+    skills: {
+      type: String,
+      default: "",
+    },
+    experience: {
+      type: String,
+      default: "",
+    },
+    contactInfo: {
+      phoneNo: {
+        type: String,
+        default: "",
+      },
+      emailId: {
+        type: String,
+        default: "",
+      },
+      linkedIn: {
+        type: String,
+        default: "",
+      },
+    },
+    noOfChanges: {
+      type: Number,
+      default: 0,
+    },
+    maxNoOfChanges: {
+      type: Number,
+      default: 1,
+    },
+    model: {
+      type: String,
+      default: "model1",
+    },
   },
-  noOfChanges:{
-    type:Number,
-    default:0
-  },
-  maxNoOfChanges:{
-    type:Number,
-    default:1
-  },
-  model:{
-    type:String,
-    required:true
-  }
-},{timestamps:true})
+  { timestamps: true }
+);
 
-const cv=mongoose.model("cv",cvSchema)
+const cv = mongoose.model("cv", cvSchema);
 
-module.exports=cv;
+module.exports = cv;

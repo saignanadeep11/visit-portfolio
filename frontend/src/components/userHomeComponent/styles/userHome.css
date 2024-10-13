@@ -1,0 +1,136 @@
+@media (max-width: 2570px) {
+  .userCvDiv {
+    font-size: 24px;
+    font-family: "Courier New", Courier, monospace;
+    margin-top: 1em;
+    width: 200px;
+  }
+}
+@media (max-width: 1660px) {
+  .userCvDiv {
+    font-size: 22px;
+    font-family: "Courier New", Courier, monospace;
+    margin-top: 1em;
+    width: 200px;
+  }
+}
+@media (max-width: 1025px) {
+  .userCvDiv {
+    font-size: 20px;
+    font-family: "Courier New", Courier, monospace;
+    margin-top: 1em;
+    width: 200px;
+  }
+}
+@media (max-width: 450px) {
+  .userCvDiv {
+    font-size: 15px;
+    font-family: "Courier New", Courier, monospace;
+    width: 150px;
+    margin-top: -15px;
+  }
+  .userCvDiv::after,
+  .userCvDiv::before {
+    --angle: 0deg;
+    content: "";
+    background: conic-gradient(
+      from var(--angle),
+      rgb(243, 23, 243),
+      transparent 5%
+    );
+    height: 105%;
+    width: 105%;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 5px;
+    animation: 3s ann linear infinite;
+    border-radius: 8px;
+  }
+
+  .userCvDiv::before {
+    filter: blur(0.5rem);
+    opacity: 0.7;
+  }
+}
+
+.userHomeMainDiv {
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  margin-top: 30px;
+}
+
+.userCvDiv {
+  /* width: 130px; */
+  /* height: 150px; */
+  padding: 1em;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  position: relative;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 10px;
+  cursor: default;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.userCvDiv:hover::after,
+.userCvDiv:hover::before {
+  --angle: 0deg;
+  content: "";
+  background: conic-gradient(
+    from var(--angle),
+    rgb(243, 23, 243),
+    transparent 5%
+  );
+  /* rgb(254, 64, 254),
+   transparent 5% rgb(241, 50, 50) */
+  /* rgb(255, 95, 255), */ /* rgb(84, 84, 248) */
+  height: 105%;
+  width: 105%;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: 3px;
+  animation: 3s ann linear infinite;
+  border-radius: 8px;
+}
+
+.userCvDiv::before {
+  filter: blur(0.5rem);
+  opacity: 0.7;
+}
+@keyframes ann {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.userCvDelete {
+  color: rgb(252, 60, 60);
+  cursor: pointer;
+}
+
+.userCvDelete:hover {
+  color: red;
+  text-shadow: 0.1px 0.1px 0.3px;
+}
+
+.userMyCv {
+  color: rgb(209, 23, 209);
+}

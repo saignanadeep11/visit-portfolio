@@ -1,0 +1,33 @@
+@media (max-width: 2570px) {
+  .userHeaderDiv {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .userHeaderDiv {
+    font-size: 24px;
+  }
+}
+@media (max-width: 450px) {
+  .userHeaderDiv {
+    font-size: 18px;
+  }
+}
+
+.userHeaderDiv {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.userHeaderDiv span {
+  position: relative;
+  width: max-content;
+  cursor: pointer;
+  color: rgb(222, 2, 222);
+}
+.userHeaderDiv span:hover {
+  color: rgb(148, 0, 148);
+}

@@ -1,12 +1,8 @@
-
-const isUerLogin=(req,res)=>{
-
-  // console.log(req.cookies.token)
-  if(req.cookies.token){
+const isUerLogin = (req, res) => {
+  if (req.cookies.token) {
     return req.cookies.token;
+  } else {
+    return false;
   }
-  else{
-    return false
-  }
-}
-module.exports=isUerLogin;
+};
+module.exports = isUerLogin;

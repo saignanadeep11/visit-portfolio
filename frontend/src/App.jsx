@@ -1,21 +1,48 @@
-import { useState } from 'react'
-import './App.css'
-import Login from './components/userComponent/Login'
-import SignUp from './components/userComponent/SignUp'
-import MakeCv from './components/cvComponent/makeCv'
-import GetCv from './components/cvComponent/getCv'
-
+import { useState } from "react";
+import "./App.css";
+import Login from "./components/userComponent/Login";
+import SignUp from "./components/userComponent/SignUp";
+import MakeCv from "./components/cvComponent/makeCv";
+import GetCv from "./components/cvComponent/getCv";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import About from "./components/cvComponent/About";
+import Experience from "./components/cvComponent/Experience";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
+import UserHome from "./components/userHomeComponent/UserHome";
+import LogRoute from "./components/utils/LogRoute";
+import VerifyEmail from "./components/userHomeComponent/VerifyEmail";
+import MailLink from "./components/userHomeComponent/MailLink";
+import Admin from "./components/userHomeComponent/Admin";
+import AdminRoute from "./components/utils/AdminRoute";
 
 function App() {
-  
   return (
-   <>
-      {/* <Login/> */}
-      {/* <SignUp/> */}
-      {/* <MakeCv/> */}
-      <GetCv/>
-   </>
-  )
+    <>
+      <Router>
+        <Routes>
+          <Route path="/:uuid" element={<GetCv />} />
+          <Route path="/:uuid/About" element={<About />} />
+          <Route path="/:uuid/Experience" element={<Experience />} />
+
+          <Route element={<LogRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/SignUp" element={<SignUp />} />
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/MakeCv" element={<MakeCv />} />
+            <Route path="/home" element={<UserHome />} />
+            <Route path="/" element={<UserHome />} />
+          </Route>
+          <Route path="/verifyMail/:token" element={<VerifyEmail />} />
+          <Route path="/sendMail" element={<MailLink />} />
+          <Route element={<AdminRoute />}>
+            <Route path="/admin" element={<Admin />} />
+          </Route>
+        </Routes>
+      </Router>
+    </>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,38 @@
+@media (max-width: 2570px) {
+  .headerDiv {
+    font-size: 28px;
+  }
+}
+@media (max-width: 1660px) {
+  .headerDiv {
+    font-size: 26px;
+  }
+}
+@media (max-width: 1025px) {
+  .headerDiv {
+    font-size: 24px;
+  }
+}
+@media (max-width: 450px) {
+  .headerDiv {
+    font-size: 18px;
+  }
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0px 10px 0;
+}
+
+.headerDiv span {
+  cursor: pointer;
+  color: rgb(255, 138, 96);
+  border-radius: 20%;
+  background: radial-gradient(red, bule, orange);
+  padding: 0px 8px 0px 8px;
+}
+
+.headerDiv span:hover {
+  color: rgb(243, 81, 22);
+}

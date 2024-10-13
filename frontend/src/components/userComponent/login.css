@@ -1,14 +1,85 @@
-.loginDiv{
+@media (max-width: 2570px) {
+  .loginDiv,
+  .loginDiv button {
+    font-size: 24px;
+  }
+  .loginDiv input {
+    font-size: 23px;
+  }
+}
+@media (max-width: 1660px) {
+  .loginDiv,
+  .loginDiv button {
+    font-size: 22px;
+  }
+  .loginDiv input {
+    font-size: 21px;
+  }
+}
+@media (max-width: 1025px) {
+  .loginDiv,
+  .loginDiv button {
+    font-size: 20px;
+  }
+  .loginDiv input {
+    font-size: 19px;
+  }
+}
+@media (max-width: 450px) {
+  .loginDiv,
+  .loginDiv button {
+    font-size: 18px;
+  }
+  .loginDiv input {
+    font-size: 17px;
+  }
+}
+
+.loginTopDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(76, 75, 75);
+  height: 100vh;
+}
+
+.loginDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   /* background-color: black; */
-  height: 100vh;
+  background-color: rgb(75, 75, 75);
+  color: white;
 }
 
-.loginForm{
+.loginForm {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+}
+
+.loginDiv input {
+  background: transparent;
+  border: solid white;
+  color: white;
+}
+
+.loginDiv input::placeholder {
+  color: white;
+}
+
+.loginDiv button,
+.redirectS {
+  margin-top: 10px;
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.loginDiv button:hover {
+  border-bottom: 2px solid rgb(203, 203, 203);
 }

@@ -1,0 +1,74 @@
+@media (max-width: 2570px) {
+  .animationDiv {
+    font-size: 3em;
+  }
+}
+
+@media (max-width: 1600px) {
+  .animationDiv {
+    font-size: 2.4em;
+  }
+}
+@media (max-width: 450px) {
+  .animationDiv {
+    font-size: 32px;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(2deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(2px, -1px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-3px, 2px) rotate(-2deg);
+  }
+  60% {
+    transform: translate(-5px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(4px, 1px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(-1px, -2px) rotate(2deg);
+  }
+  90% {
+    transform: translate(1px, 3px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -3px) rotate(-2deg);
+  }
+}
+
+.shaking {
+  display: inline-block;
+  animation: shake 0.5s; /* Duration of the shaking */
+  animation-iteration-count: 1; /* Only shake once */
+}
+
+.animationDiv {
+  font-family: -moz-initial;
+  position: relative;
+  /* color: rgb(252, 99, 44); */
+}
+.animationDiv {
+  background: linear-gradient(
+    to right,
+    rgb(249, 37, 37),
+    /* rgb(255, 8, 140),
+    rgb(88, 88, 243), */ rgb(70, 70, 252)
+  );
+  background-clip: text;
+  color: transparent;
+}
