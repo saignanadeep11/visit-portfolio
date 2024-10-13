@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./styles/NameAnimation.css"; // Import the CSS file for animation
+import "./styles/nameAnimation.css";
+
+// Import the CSS file for animation
 
 const NameAnimation = ({ name = "" }) => {
   const [displayedName, setDisplayedName] = useState([]); // Initial state is empty
