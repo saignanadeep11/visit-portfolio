@@ -2,8 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Login from "./components/userComponent/Login";
 import SignUp from "./components/userComponent/SignUp";
-import MakeCv from "./components/cvComponent/makeCv";
-import GetCv from "./components/cvComponent/getCv";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import About from "./components/cvComponent/About";
 import Experience from "./components/cvComponent/Experience";
@@ -14,6 +13,8 @@ import VerifyEmail from "./components/userHomeComponent/VerifyEmail";
 import MailLink from "./components/userHomeComponent/MailLink";
 import Admin from "./components/userHomeComponent/Admin";
 import AdminRoute from "./components/utils/AdminRoute";
+import GetCv from "./components/cvComponent/GetCv";
+import MakeCv from "./components/cvComponent/MakeCv";
 
 function App() {
   return (
