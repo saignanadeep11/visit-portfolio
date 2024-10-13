@@ -8,7 +8,7 @@ import "./styles/admin.css";
 function Admin() {
   const [users, setUser] = useState(null);
   const [cvList, setCv] = useState(null);
-
+  const url = import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     async function fetch() {
       const k = await getAdminUser();
@@ -19,7 +19,7 @@ function Admin() {
     fetch();
   }, []);
   function openCv(uuid) {
-    window.open(`http://localhost:5173/${uuid}`, "_blank");
+    window.open(`${url}/${uuid}`, "_blank");
   }
   return (
     <>
