@@ -121,10 +121,10 @@ exports.isMailVerified = async (req, res) => {
     if (curUser.isMailVerified) {
       return res.status(200).json({ status: "Mail Verified" });
     } else {
-      return res.status(307).json({ error: "Mail Not Verified", err });
+      return res.status(201).json({ error: "Mail Not Verified", err });
     }
   } catch (err) {
-    return res.status(307).json({ error: "Mail Not Verified", err });
+    return res.status(201).json({ error: "Mail Not Verified", err });
   }
 };
 
