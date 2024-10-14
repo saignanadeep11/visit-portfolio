@@ -24,9 +24,9 @@ exports.createUser = async (req, res) => {
       .cookie("token", token, {
         httpOnly: true,
         secure: true,
-        maxAge: 24 * 60 * 60 * 1000,
+        sameSite: "None",
         domain: new URL(process.env.FRONTEND_URL).hostname,
-        sameSite: "Lax",
+        maxAge: 24 * 60 * 60 * 1000,
         path: "/",
       })
       .json({ success: true, newUser });
@@ -60,7 +60,7 @@ exports.verifyUser = async (req, res) => {
       secure: true,
       maxAge: 24 * 60 * 60 * 1000,
       domain: new URL(process.env.FRONTEND_URL).hostname,
-      sameSite: "Lax",
+      sameSite: "None",
       path: "/",
     })
     .json({ success: true, return: "User login Successful" });
@@ -86,7 +86,7 @@ exports.userLogOut = async (req, res) => {
         secure: true,
         maxAge: 24 * 60 * 60 * 1000,
         domain: new URL(process.env.FRONTEND_URL).hostname,
-        sameSite: "Lax",
+        sameSite: "None",
         path: "/",
       })
       .status(204)
