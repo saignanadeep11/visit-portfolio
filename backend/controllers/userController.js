@@ -7,6 +7,7 @@ const { createToken, validateToken } = require("../config/authentication");
 const isUserLogin = require("../config/isUserLogin");
 const sendVerificationEmail = require("../config/sendVerification");
 
+const url = `.${new URL(process.env.FRONTEND_URL).hostname}`;
 // const fs=require('fs')
 exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -25,7 +26,7 @@ exports.createUser = async (req, res) => {
         httpOnly: true,
         secure: true,
         sameSite: "None",
-        domain: new URL(process.env.FRONTEND_URL).hostname,
+        domain: url,
         maxAge: 24 * 60 * 60 * 1000,
         path: "/",
       })
@@ -59,7 +60,7 @@ exports.verifyUser = async (req, res) => {
       httpOnly: true,
       secure: true,
       maxAge: 24 * 60 * 60 * 1000,
-      domain: new URL(process.env.FRONTEND_URL).hostname,
+      domain: url,
       sameSite: "None",
       path: "/",
     })
@@ -85,7 +86,7 @@ exports.userLogOut = async (req, res) => {
         httpOnly: true,
         secure: true,
         maxAge: 24 * 60 * 60 * 1000,
-        domain: new URL(process.env.FRONTEND_URL).hostname,
+        domain: url,
         sameSite: "None",
         path: "/",
       })
