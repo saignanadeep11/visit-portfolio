@@ -10,6 +10,12 @@ const cv = require("./routes/cvRoute");
 const ca = require("./config/isUserLogin");
 const { validateToken } = require("./config/authentication");
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +25,11 @@ app.use(cookieParser());
 app.use("/user", user);
 app.use("/cv", cv);
 
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+});
 module.exports = {
   app,
 };
