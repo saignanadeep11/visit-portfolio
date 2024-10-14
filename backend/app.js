@@ -10,7 +10,7 @@ const cv = require("./routes/cvRoute");
 const ca = require("./config/isUserLogin");
 const { validateToken } = require("./config/authentication");
 
-// const path = require("path");
+const path = require("path");
 // const { fileURLToPath } = require("url");
 // import path from "path";
 // import { fileURLToPath } from "url";
