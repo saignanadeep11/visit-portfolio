@@ -1,6 +1,6 @@
-.mainDiv {
+.mainGetDiv {
   display: grid;
-  grid-template-columns: 0.5fr 15fr 0.5fr;
+  grid-template-columns: 0.5fr 5fr 0.5fr;
   position: relative;
 }
 .nameDiv {

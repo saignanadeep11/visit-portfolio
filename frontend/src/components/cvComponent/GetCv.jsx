@@ -29,7 +29,7 @@ function GetCv() {
   return (
     <div className="topDiv">
       <Header />
-      <div className="mainDiv">
+      <div className="mainGetDiv">
         <div></div>
         <div>
           {cvData.name ? (
