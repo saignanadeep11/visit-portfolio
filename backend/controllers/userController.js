@@ -8,7 +8,7 @@ const isUserLogin = require("../config/isUserLogin");
 const sendVerificationEmail = require("../config/sendVerification");
 
 // const url = `.${new URL(process.env.FRONTEND_URL).hostname}`;
-const url = `.onrender.com`;
+const url = `career-folio.onrender.com`;
 // const fs=require('fs')
 exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -29,7 +29,6 @@ exports.createUser = async (req, res) => {
         sameSite: "None",
         domain: url,
         maxAge: 24 * 60 * 60 * 1000,
-        path: "/",
       })
       .json({ success: true, newUser });
   } catch (err) {
@@ -63,7 +62,6 @@ exports.verifyUser = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
       domain: url,
       sameSite: "None",
-      path: "/",
     })
     .json({ success: true, return: "User login Successful" });
 };
@@ -92,7 +90,6 @@ exports.userLogOut = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         domain: url,
         sameSite: "None",
-        path: "/",
       })
       .status(204)
       .json({ status: "User sucessfully log" });
