@@ -15,7 +15,7 @@ function GetCv() {
     const fetchData = async () => {
       const cv = await getCv(uuid);
       setCvData(cv);
-      setName(cvData.name);
+      // setName(cvData.name);
     };
     fetchData();
     delayHeadLine();
