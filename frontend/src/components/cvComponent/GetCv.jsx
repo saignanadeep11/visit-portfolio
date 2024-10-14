@@ -32,16 +32,20 @@ function GetCv() {
       <div className="mainDiv">
         <div></div>
         <div>
-          <div className="nameDiv">
-            <div className="nameInDiv">
-              <NameAnimation name={name} />
-              {isHeadLineLoaded ? (
-                <span className="headlineDiv">{cvData.headLine}</span>
-              ) : (
-                <div className="dot">.</div>
-              )}
+          {cvData.name ? (
+            <div className="nameDiv">
+              <div className="nameInDiv">
+                <NameAnimation name={cvData.name || name} />
+                {isHeadLineLoaded ? (
+                  <span className="headlineDiv">{cvData.headLine}</span>
+                ) : (
+                  <div className="dot">.</div>
+                )}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div>Loading</div>
+          )}
 
           {/* {cvData.about} */}
           {/* {JSON.stringify(cvData)} */}
