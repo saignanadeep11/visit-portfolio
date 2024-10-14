@@ -38,6 +38,7 @@ exports.createUser = async (req, res) => {
 exports.verifyUser = async (req, res) => {
   const { email, password } = req.body;
   const curUser = await user.findOne({ email });
+  console.log(new URL(process.env.FRONTEND_URL).hostname);
   if (!curUser) {
     return res.status(409).json({ error: "User Not Found" });
   }
