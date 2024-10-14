@@ -19,7 +19,16 @@ exports.createUser = async (req, res) => {
 
     // console.log(req)
     // fs.appendFileSync
-    res.status(201).cookie("token", token).json({ success: true, newUser });
+    res
+      .status(201)
+      .cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        maxAge: 24 * 60 * 60 * 1000,
+        domain: process.env.FRONTEND_URL,
+        sameSite: "Lax",
+      })
+      .json({ success: true, newUser });
   } catch (err) {
     res.status(401).json(err);
   }
@@ -44,7 +53,13 @@ exports.verifyUser = async (req, res) => {
   };
   const token = createToken(CurToken);
   return res
-    .cookie("token", token)
+    .cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      domain: process.env.FRONTEND_URL,
+      sameSite: "Lax",
+    })
     .json({ success: true, return: "User login Successful" });
 };
 
@@ -63,7 +78,13 @@ exports.isUserLog = async (req, res) => {
 exports.userLogOut = async (req, res) => {
   if (req.cookies.token) {
     return res
-      .cookie("token", "")
+      .cookie("token", "", {
+        httpOnly: true,
+        secure: true,
+        maxAge: 24 * 60 * 60 * 1000,
+        domain: process.env.FRONTEND_URL,
+        sameSite: "Lax",
+      })
       .status(204)
       .json({ status: "User sucessfully log" });
   } else {
