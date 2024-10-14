@@ -25,21 +25,32 @@ const NameAnimation = ({ name = "" }) => {
   };
   useEffect(() => {
     const initialChars = Array.from(
-      { length: name.length - 1 },
+      { length: name.length },
       getRandomCharacter
     );
-    setDisplayedName(" " + initialChars);
+    setDisplayedName(initialChars);
 
     let currentIndex = 0;
     const intervalId = setInterval(() => {
       setShakeIndex(currentIndex);
       let index = 0;
       setTimeout(() => {
-        setDisplayedName((prevName) => {
-          const updatedName = [...prevName];
-          updatedName[currentIndex] = name[currentIndex];
-          return updatedName;
-        });
+        if (currentIndex === 0) {
+          // Delay the first update to trigger the shake animation
+          setTimeout(() => {
+            setDisplayedName((prevName) => {
+              const updatedName = [...prevName];
+              updatedName[currentIndex] = name[currentIndex];
+              return updatedName;
+            });
+          }, 50);
+        } else {
+          setDisplayedName((prevName) => {
+            const updatedName = [...prevName];
+            updatedName[currentIndex] = name[currentIndex];
+            return updatedName;
+          });
+        }
         currentIndex++;
         if (currentIndex >= name.length) {
           clearInterval(intervalId);
