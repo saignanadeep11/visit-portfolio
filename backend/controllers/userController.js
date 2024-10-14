@@ -7,7 +7,8 @@ const { createToken, validateToken } = require("../config/authentication");
 const isUserLogin = require("../config/isUserLogin");
 const sendVerificationEmail = require("../config/sendVerification");
 
-const url = `.${new URL(process.env.FRONTEND_URL).hostname}`;
+// const url = `.${new URL(process.env.FRONTEND_URL).hostname}`;
+const url = `${process.env.FRONTEND_URL}`;
 // const fs=require('fs')
 exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -69,6 +70,9 @@ exports.verifyUser = async (req, res) => {
 
 exports.isUserLog = async (req, res) => {
   const userTok = await isUserLogin(req, res);
+  if (!userTok) {
+    return res.status(401).json({ error: "User Not Login" });
+  }
   const curUser = validateToken(userTok);
   const st = `${curUser}`;
   if (st) {
