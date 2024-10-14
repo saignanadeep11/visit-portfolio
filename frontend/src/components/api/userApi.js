@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = import.meta.env.VITE_BACKEND_URL;
+const url = process.env.VITE_BACKEND_URL || import.meta.env.VITE_BACKEND_URL;
 export const signUp = async (data) => {
   return await axios
     .post(`${url}/user/api/SignUp`, data, {
