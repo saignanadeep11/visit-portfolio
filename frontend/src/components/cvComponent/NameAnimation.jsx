@@ -29,30 +29,20 @@ const NameAnimation = ({ name = "" }) => {
       getRandomCharacter
     );
     setDisplayedName(initialChars);
-
     let currentIndex = 0;
     const intervalId = setInterval(() => {
       setShakeIndex(currentIndex);
       let index = 0;
       setTimeout(() => {
-        if (currentIndex === 0) {
-          // Delay the first update to trigger the shake animation
-          setTimeout(() => {
-            setDisplayedName((prevName) => {
-              const updatedName = [...prevName];
-              updatedName[currentIndex] = name[currentIndex];
-              return updatedName;
-            });
-          }, 50);
-        } else {
-          setDisplayedName((prevName) => {
-            const updatedName = [...prevName];
-            updatedName[currentIndex] = name[currentIndex];
-            return updatedName;
-          });
-        }
-        currentIndex++;
-        if (currentIndex >= name.length) {
+        setDisplayedName((prevName) => {
+          index = currentIndex;
+          const updatedName = [...prevName];
+          updatedName[index - 1] = name[index - 1];
+          return updatedName;
+        });
+
+        currentIndex += 1;
+        if (index >= name.length - 1) {
           clearInterval(intervalId);
         }
         setShakeIndex(-1);
