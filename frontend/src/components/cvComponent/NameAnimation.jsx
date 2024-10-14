@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./styles/nameAnimation.css";
 
 const NameAnimation = ({ name = "" }) => {
-  const [displayedName, setDisplayedName] = useState([]); // Initial state is empty
-  const [shakeIndex, setShakeIndex] = useState(-1); // To track which letter is shaking
-  // console.log(name)
+  const [displayedName, setDisplayedName] = useState([]);
+  const [shakeIndex, setShakeIndex] = useState(-1);
+
   const getRandomDevanagariCharacter = () => {
     const min = 0x0905;
     const max = 0x097f;
@@ -12,7 +12,6 @@ const NameAnimation = ({ name = "" }) => {
     return String.fromCharCode(randomChar);
   };
 
-  // Function to generate a random Telugu character
   const getRandomTeluguCharacter = () => {
     const min = 0xd000;
     const max = 0xd7a3;
@@ -25,7 +24,6 @@ const NameAnimation = ({ name = "" }) => {
       : getRandomTeluguCharacter();
   };
   useEffect(() => {
-    // Initialize the name with random Chinese characters
     const initialChars = Array.from(
       { length: name.length },
       getRandomCharacter
@@ -33,28 +31,22 @@ const NameAnimation = ({ name = "" }) => {
     setDisplayedName(initialChars);
 
     let currentIndex = 0;
-
-    // Define an interval to gradually replace Chinese characters with the actual name
     const intervalId = setInterval(() => {
-      setShakeIndex(currentIndex); // Trigger the shaking effect for the current letter
+      setShakeIndex(currentIndex);
       let index = 0;
       setTimeout(() => {
-        // After shaking, replace the character with the actual one
         setDisplayedName((prevName) => {
           const updatedName = [...prevName];
-          updatedName[currentIndex] = name[currentIndex]; // Replace with the actual letter
-          currentIndex += index;
-          index += 1;
-          if (currentIndex >= name.length) {
-            clearInterval(intervalId); // Stop the interval after all letters are replaced
-          }
-
+          updatedName[currentIndex] = name[currentIndex];
           return updatedName;
         });
-
-        setShakeIndex(-1); // Remove shaking after the character has been updated
-      }, 50); // Shaking duration
-    }, 220); // Delay between each character update
+        currentIndex++;
+        if (currentIndex >= name.length) {
+          clearInterval(intervalId);
+        }
+        setShakeIndex(-1);
+      }, 50);
+    }, 220);
 
     return () => clearInterval(intervalId);
   }, [name]);
