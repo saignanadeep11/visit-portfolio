@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles/nameAnimation.css";
 
-// Import the CSS file for animation
-
 const NameAnimation = ({ name = "" }) => {
   const [displayedName, setDisplayedName] = useState([]); // Initial state is empty
   const [shakeIndex, setShakeIndex] = useState(-1); // To track which letter is shaking
