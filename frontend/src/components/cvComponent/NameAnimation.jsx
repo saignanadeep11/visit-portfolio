@@ -25,10 +25,10 @@ const NameAnimation = ({ name = "" }) => {
   };
   useEffect(() => {
     const initialChars = Array.from(
-      { length: name.length },
+      { length: name.length - 1 },
       getRandomCharacter
     );
-    setDisplayedName(initialChars);
+    setDisplayedName(" " + initialChars);
 
     let currentIndex = 0;
     const intervalId = setInterval(() => {
