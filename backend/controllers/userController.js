@@ -8,7 +8,7 @@ const isUserLogin = require("../config/isUserLogin");
 const sendVerificationEmail = require("../config/sendVerification");
 
 // const url = `.${new URL(process.env.FRONTEND_URL).hostname}`;
-const url = `.career-folio.onrender.com`;
+const url = "career-folio.onrender.com";
 // const fs=require('fs')
 exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
