@@ -146,6 +146,9 @@ exports.sendVerifyEmail = async (req, res) => {
 exports.isMailVerified = async (req, res) => {
   try {
     const userTok = await isUserLogin(req, res);
+    if (!userTok) {
+      return res.status(409).json({ error: "User Not Found" });
+    }
     const cur = validateToken(userTok);
     const curUser = await user.findOne({ email: cur.email });
     if (curUser.isMailVerified) {
