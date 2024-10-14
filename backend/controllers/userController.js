@@ -27,6 +27,7 @@ exports.createUser = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         domain: process.env.FRONTEND_URL,
         sameSite: "Lax",
+        path: "/",
       })
       .json({ success: true, newUser });
   } catch (err) {
@@ -59,6 +60,7 @@ exports.verifyUser = async (req, res) => {
       maxAge: 24 * 60 * 60 * 1000,
       domain: process.env.FRONTEND_URL,
       sameSite: "Lax",
+      path: "/",
     })
     .json({ success: true, return: "User login Successful" });
 };
@@ -84,6 +86,7 @@ exports.userLogOut = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
         domain: process.env.FRONTEND_URL,
         sameSite: "Lax",
+        path: "/",
       })
       .status(204)
       .json({ status: "User sucessfully log" });
