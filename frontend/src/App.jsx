@@ -15,6 +15,7 @@ import Admin from "./components/userHomeComponent/Admin";
 import AdminRoute from "./components/utils/AdminRoute";
 import GetCv from "./components/cvComponent/GetCv";
 import MakeCv from "./components/cvComponent/MakeCv";
+import PageNotFound from "./components/userComponent/PageNotFound";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route element={<AdminRoute />}>
             <Route path="/admin" element={<Admin />} />
           </Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Router>
     </>
