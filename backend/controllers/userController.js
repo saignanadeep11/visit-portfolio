@@ -25,7 +25,7 @@ exports.createUser = async (req, res) => {
         httpOnly: true,
         secure: true,
         maxAge: 24 * 60 * 60 * 1000,
-        domain: process.env.FRONTEND_URL,
+        domain: new URL(process.env.FRONTEND_URL).hostname,
         sameSite: "Lax",
         path: "/",
       })
@@ -58,7 +58,7 @@ exports.verifyUser = async (req, res) => {
       httpOnly: true,
       secure: true,
       maxAge: 24 * 60 * 60 * 1000,
-      domain: process.env.FRONTEND_URL,
+      domain: new URL(process.env.FRONTEND_URL).hostname,
       sameSite: "Lax",
       path: "/",
     })
@@ -84,7 +84,7 @@ exports.userLogOut = async (req, res) => {
         httpOnly: true,
         secure: true,
         maxAge: 24 * 60 * 60 * 1000,
-        domain: process.env.FRONTEND_URL,
+        domain: new URL(process.env.FRONTEND_URL).hostname,
         sameSite: "Lax",
         path: "/",
       })
