@@ -42,7 +42,7 @@ export const isUserLogin = async () => {
     .catch((err) => {
       console.log(err);
     });
-  console.log(user);
+  // console.log(user);
   return user;
 };
 
