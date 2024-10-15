@@ -7,6 +7,9 @@ function UserHeader() {
   function homeFunction() {
     navigate("/");
   }
+  function kalamSir() {
+    navigate("/kalam-sir");
+  }
   function createCv() {
     navigate("/makeCv");
   }
@@ -18,7 +21,7 @@ function UserHeader() {
     <>
       <div className="userHeaderDiv">
         <span onClick={homeFunction}>Home</span>
-        <span>Sample Model</span>
+        <span onClick={kalamSir}>Sample CV</span>
         <span onClick={createCv}>Create CV</span>
         <span onClick={logout}>Log Out</span>
       </div>

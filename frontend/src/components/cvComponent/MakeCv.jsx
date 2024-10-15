@@ -2,6 +2,8 @@ import "./styles/makeCv.css";
 import { createCv, getCv } from "../api/cvApi";
 import UserHeader from "../userHomeComponent/UserHeader";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function MakeCv() {
   // const [model, setModel] = useState("");
   const [name, setName] = useState("");
@@ -12,7 +14,7 @@ function MakeCv() {
   const [phoneNo, setPhone] = useState("");
   const [emailId, setEmail] = useState("");
   const [linkedIn, setLinkedIn] = useState("");
-
+  const navigate = useNavigate();
   async function handleSubmit(e) {
     // This part to acheck if cv present useEffect(()=>{
     //   as
@@ -31,6 +33,7 @@ function MakeCv() {
       .then((res) => {
         console.log(res);
         alert(res);
+        navigate("/");
       })
       .catch((err) => {
         console.log("error", err);

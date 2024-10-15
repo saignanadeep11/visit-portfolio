@@ -32,7 +32,7 @@ function Footer({ ...contact }) {
           )}
         </div>
         <div className="emalDiv">
-          {contact.emailld ? (
+          {contact.emailId ? (
             <div
               className="divColorFoot"
               style={{ cursor: "pointer" }}

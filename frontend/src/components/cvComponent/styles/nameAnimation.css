@@ -1,17 +1,17 @@
 @media (max-width: 2570px) {
   .animationDiv {
-    font-size: 3em;
+    font-size: 4em;
   }
 }
 
 @media (max-width: 1600px) {
   .animationDiv {
-    font-size: 2.4em;
+    font-size: 3.4em;
   }
 }
 @media (max-width: 1025px) {
   .animationDiv {
-    font-size: 2.8em;
+    font-size: 3em;
   }
 }
 @media (max-width: 450px) {

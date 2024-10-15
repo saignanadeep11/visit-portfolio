@@ -40,7 +40,9 @@ function UserHome() {
               ) : (
                 <></>
               )}
-
+              <div>
+                Your CV Link:https://career-folio.onrender.com/{myCv.uuid}
+              </div>
               <div onClick={deleteCv} className="userCvDelete">
                 Delete Cv
               </div>
