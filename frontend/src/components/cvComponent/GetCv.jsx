@@ -4,16 +4,21 @@ import { useParams } from "react-router-dom";
 import NameAnimation from "./NameAnimation";
 import "./styles/getcv.css";
 import Header from "./home/Header";
+import { useNavigate } from "react-router-dom";
 
 function GetCv() {
   const { uuid } = useParams();
   const [cvData, setCvData] = useState([]);
   // const [name, setName] = useState("");
   const [isHeadLineLoaded, setHeadLineLoaded] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const cv = await getCv(uuid);
+      // console.log(cv);
+      if (cv === null) {
+        navigate("/PageNotFound");
+      }
       setCvData(cv);
       // setName(cvData.name);
     };

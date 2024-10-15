@@ -42,6 +42,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
+          <Route path="/PageNotFound" element={<PageNotFound />} />
         </Routes>
       </Router>
     </>

@@ -71,7 +71,7 @@ exports.verifyUser = async (req, res) => {
 exports.isUserLog = async (req, res) => {
   const userTok = await isUserLogin(req, res);
   if (!userTok) {
-    return res.status(401).json({ error: "User Not Login" });
+    return res.status(401);
   }
   const curUser = validateToken(userTok);
   const st = `${curUser}`;
@@ -147,17 +147,17 @@ exports.isMailVerified = async (req, res) => {
   try {
     const userTok = await isUserLogin(req, res);
     if (!userTok) {
-      return res.status(409).json({ error: "User Not Found" });
+      return res.status(409).json({ error: "User Not Found", err });
     }
     const cur = validateToken(userTok);
     const curUser = await user.findOne({ email: cur.email });
     if (curUser.isMailVerified) {
       return res.status(200).json({ status: "Mail Verified" });
     } else {
-      return res.status(201).json({ error: "Mail Not Verified", err });
+      return res.status(403).json({ error: "Mail Not Verified", err });
     }
   } catch (err) {
-    return res.status(201).json({ error: "Mail Not Verified", err });
+    return res.status(403).json({ error: "Mail Not Verified", err });
   }
 };
 

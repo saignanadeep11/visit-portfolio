@@ -31,8 +31,8 @@ const NameAnimation = ({ name = "" }) => {
     setDisplayedName(initialChars);
     let currentIndex = 0;
     const intervalId = setInterval(() => {
-      setShakeIndex(currentIndex);
-      let index = 0;
+      setShakeIndex(currentIndex + 1);
+      let index = currentIndex;
       setTimeout(() => {
         setDisplayedName((prevName) => {
           index = currentIndex;
@@ -42,25 +42,27 @@ const NameAnimation = ({ name = "" }) => {
         });
 
         currentIndex += 1;
-        if (index >= name.length - 1) {
+        if (index >= name.length) {
           clearInterval(intervalId);
         }
         setShakeIndex(-1);
-      }, 50);
+      }, 20);
     }, 220);
 
     return () => clearInterval(intervalId);
-  }, [name]);
+  }, []);
 
   return (
     <div className="animationDiv">
       {displayedName.map((char, index) => (
         <span
           key={index}
-          className={shakeIndex === index ? "shaking" : ""}
-          style={{ transition: "all 0.5s ease" }}
+          className={shakeIndex === index + 2 ? "shaking" : ""}
+          style={{ transition: "all 0.5s ease-in-out" }}
         >
           {char}
+          {/* <>{shakeIndex}</>
+          <>{index}</> */}
         </span>
       ))}
     </div>
