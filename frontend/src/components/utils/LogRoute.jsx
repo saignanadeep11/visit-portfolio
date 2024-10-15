@@ -10,7 +10,6 @@ function LogRoute() {
       setUser(await isUserLogin());
       setLoading(false);
     }
-    DataObject;
     fetch();
   }, []);
   if (loading) {

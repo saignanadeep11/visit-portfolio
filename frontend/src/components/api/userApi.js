@@ -37,11 +37,12 @@ export const isUserLogin = async () => {
     })
     .then((res) => {
       user = res.data;
-      // console.log(user);
+      console.log(user);
     })
     .catch((err) => {
       console.log(err);
     });
+  console.log(user);
   return user;
 };
 

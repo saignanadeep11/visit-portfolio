@@ -71,14 +71,14 @@ exports.verifyUser = async (req, res) => {
 exports.isUserLog = async (req, res) => {
   const userTok = await isUserLogin(req, res);
   if (!userTok) {
-    return res.status(401);
+    return res.status(401).json("No Token");
   }
   const curUser = validateToken(userTok);
   const st = `${curUser}`;
   if (st) {
     return res.status(200).json(curUser);
   } else {
-    return res.status(401);
+    return res.status(401).json("Error");
   }
   return res.json(user);
 };
