@@ -61,6 +61,7 @@
 .signUpDiv input {
   background: transparent;
   border: solid white;
+  color: white;
 }
 
 .signUpDiv button,

@@ -22,6 +22,9 @@ function UserHome() {
     const uuid = myCv.uuid;
     navigate(`/${uuid}`);
   }
+  function create() {
+    navigate("/MakeCv");
+  }
   // console.log(myCv);
   return (
     <>
@@ -36,7 +39,7 @@ function UserHome() {
               </div>
               <div onClick={openMyCv}>{myCv.name}</div>
               {myCv.contactInfo.emailId ? (
-                <>{myCv.contactInfo.emailId}</>
+                <div onClick={openMyCv}>{myCv.contactInfo.emailId}</div>
               ) : (
                 <></>
               )}
@@ -48,8 +51,8 @@ function UserHome() {
               </div>
             </div>
           ) : (
-            <div className="userCvDiv">
-              You Haven't yet created your CV to show
+            <div className="userCvDiv" onClick={create}>
+              You Haven't yet created your CV to show. Click Here to create
             </div>
           )}
         </div>
