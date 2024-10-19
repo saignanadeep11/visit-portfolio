@@ -35,7 +35,7 @@ app.use("*", (req, res) => {
 });
 setInterval(() => {
   console.log("Running at port ", process.env.PORT);
-}, 50000);
+}, 2500000);
 module.exports = {
   app,
 };
