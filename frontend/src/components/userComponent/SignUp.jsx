@@ -7,10 +7,14 @@ function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [confirmPassword, setConfirmPassword] = useState("");
   async function signSubmit(e) {
     e.preventDefault();
     try {
+      if (password !== confirmPassword) {
+        alert("Passwords are not Same");
+        return;
+      }
       if (!validator.validate(email)) {
         alert("Invalid Email");
         return;
@@ -68,6 +72,15 @@ function SignUp() {
             required
             onChange={(e) => {
               setPassword(e.target.value);
+            }}
+          />
+          <input
+            name="setPassword"
+            placeholder="Confirm password"
+            type="password"
+            required
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
             }}
           />
           <button type="submit">Sign Up</button>
