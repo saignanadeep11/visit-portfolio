@@ -9,7 +9,7 @@ const user = require("./routes/userRoute");
 const cv = require("./routes/cvRoute");
 const ca = require("./config/isUserLogin");
 const { validateToken } = require("./config/authentication");
-
+const axios = require("axios");
 const path = require("path");
 // const { fileURLToPath } = require("url");
 // import path from "path";
@@ -33,9 +33,17 @@ app.use(express.static(path.join(__dirname, "../frontend/dist")));
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
-setInterval(() => {
+setInterval(async () => {
+  await axios
+    .get(process.env.FRONTEND_URL)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   console.log("Running at port ", process.env.PORT);
-}, 2500000);
+}, 1400000);
 module.exports = {
   app,
 };
