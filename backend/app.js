@@ -43,7 +43,7 @@ setInterval(async () => {
       console.log(err);
     });
   console.log("Running at port ", process.env.PORT);
-}, 1400000);
+}, 740000);
 module.exports = {
   app,
 };
