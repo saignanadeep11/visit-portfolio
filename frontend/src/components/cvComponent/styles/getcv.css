@@ -1,16 +1,16 @@
 @media (max-width: 1600px) {
   .headlineDiv {
-    font-size: 3.4em;
+    font-size: 1.3em;
   }
 }
 @media (max-width: 1023px) {
   .headlineDiv {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 }
 @media (max-width: 450px) {
   .headlineDiv {
-    font-size: 16px;
+    font-size: 12px;
   }
 }
 .mainGetDiv {
