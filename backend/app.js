@@ -35,12 +35,14 @@ app.use("*", (req, res) => {
 });
 setInterval(async () => {
   await axios
-    .get(process.env.FRONTEND_URL)
+    .get(process.env.FRONTEND_URL, {
+      withCredentials: true,
+    })
     .then((res) => {
-      console.log(res);
+      console.log("success", res.data);
     })
     .catch((err) => {
-      console.log(err);
+      console.log("error", err.error);
     });
   console.log("Running at port ", process.env.PORT);
 }, 740000);
