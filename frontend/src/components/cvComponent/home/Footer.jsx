@@ -21,7 +21,7 @@ function Footer({ ...contact }) {
                 className="divColorFoot"
                 style={{ cursor: "pointer" }}
                 onClick={() => {
-                  window.open("https://" + contact.linkedIn);
+                  window.open(contact.linkedIn);
                 }}
               >
                 Linkedin
@@ -37,7 +37,7 @@ function Footer({ ...contact }) {
               className="divColorFoot"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                window.open("mailto:" + contact.emailld);
+                window.open(`mailto:${contact.emailId}`);
               }}
             >
               Mail Me Here
