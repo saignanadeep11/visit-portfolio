@@ -131,13 +131,25 @@ exports.sendVerifyEmail = async (req, res) => {
   try {
     const userTok = await isUserLogin(req, res);
     const curUser = validateToken(userTok);
+    const mailSend = req.cookies.send;
+
     const cur = await user.findOne({ email: curUser.email });
-    if (cur.isMailVerified) {
+    if (mailSend || cur.isMailVerified) {
       return res.status(200).json({ status: "Mail Verified" });
     }
     await sendVerificationEmail(curUser);
 
-    return res.status(200).json({ status: "email send" });
+    return res
+      .status(200)
+      .cookie("send", 1, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "None",
+        domain: url,
+        maxAge: 1 * 60 * 60 * 1000,
+        path: "/",
+      })
+      .json({ status: "email send" });
   } catch (err) {
     return res.status(409).json({ error: "Invalid or expired token", err });
   }
